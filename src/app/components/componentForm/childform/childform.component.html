@@ -1,0 +1,25 @@
+<main class="mainClass" >
+  <form [formGroup]="form" style="display: flex;
+    align-items: center;
+    flex-direction: column;">
+    <h4>Object {{this.object.id}}</h4>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" >Name</span>
+    </div>
+    <input type="text" (input)="setNewValue()" formControlName="name" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" >Prop2</span>
+    </div>
+    <input type="text" formControlName="prop2" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" >Prop3</span>
+    </div>
+    <input type="text" formControlName="prop3" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+  </div>
+  </form>
+</main>
