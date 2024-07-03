@@ -6,12 +6,15 @@ import { AppComponent } from './app.component';
 import { ChildformComponent } from './components/componentForm/childform/childform.component';
 import { ParentComponent } from './components/componentForm/parent/parent.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { AccessorDirective, FirstTestValidatorDirective } from './directive/accessor.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChildformComponent,
     ParentComponent,
+    AccessorDirective,
+    FirstTestValidatorDirective
 
   ],
   imports: [

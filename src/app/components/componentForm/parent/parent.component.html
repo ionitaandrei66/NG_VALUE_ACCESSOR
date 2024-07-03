@@ -3,7 +3,7 @@
     <button type="button" class="btn btn-primary" (click)="see()">See console.log</button>
   <ng-container *ngIf="listData.length">
     <div *ngFor="let item of listData">
-      <app-childform  [formControlName]="item.id.toString()"></app-childform>
+      <app-childform  firstTestValidator [formControlName]="item.id.toString()"></app-childform>
     </div>
   </ng-container>
   </form>

@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Model, objectsListSubject} from "../../../objectsList";
-import {BehaviorSubject, catchError, filter, of, takeUntil} from "rxjs";
+import {Model} from "../../../objectsList";
+import {BehaviorSubject, filter, Subject, takeUntil} from "rxjs";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -10,7 +10,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class ParentComponent implements OnInit, OnDestroy{
 
- destroy$ = new BehaviorSubject<boolean>(false);
+ destroy$ = new Subject<boolean>();
  form: FormGroup = this.fb.group({});
  listData: Model[]=  [
    { id: 1, name: 'Obiectul 1', prop2: 'Valoare2', prop3: 'Valoare3' },
@@ -23,7 +23,9 @@ export class ParentComponent implements OnInit, OnDestroy{
           this.listData.forEach((rec)=>{
             this.form.addControl(String(rec.id),new FormControl(rec, Validators.required))
           })
-
+         this.form.valueChanges.pipe(takeUntil(this.destroy$)).subscribe(res => {
+             console.log(res)
+         })
   }
 
   ngOnDestroy() {
